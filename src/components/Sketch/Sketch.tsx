@@ -1,15 +1,10 @@
 import './Sketch.scss';
 
-const HEAD = (
-  <div>
-    <img className='app__head' src="src\assets\head.png" alt="head" />
-  </div>
-)
-
 const Sketch = () => {
   return (
     <div className="app__sketch">
-      {HEAD}
+      <img className='app__head' src="src\assets\head.png" alt="head" />
+      <div className="app__torso" />
       <div className="app__drop-bar" />
       <div className="app__top-bar" />
       <div className="app__middle-bar" />
