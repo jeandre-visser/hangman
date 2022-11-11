@@ -1,0 +1,11 @@
+import './Keyboard.scss';
+
+import React from 'react'
+
+const Keyboard = () => {
+  return (
+    <div>Keyboard</div>
+  )
+}
+
+export default Keyboard
