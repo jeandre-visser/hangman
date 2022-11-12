@@ -3,26 +3,25 @@
   grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
   grid-gap: 0.4rem;
   align-self: stretch;
-  justify-content: center;
+}
 
-  .btn {
-    aspect-ratio: 1/1;
-    background: #ffca28;
-    border-radius: 1rem;
-    font-size: 1.7rem;
-    text-transform: uppercase;
-    font-weight: bold;
+.btn {
+  aspect-ratio: 1/1;
+  background: #ffca28;
+  border-radius: 1rem;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  font-weight: bold;  
 
-    &:hover:not(:disabled), &:focus:not(:disabled) {
-      background-color: #FFF;
-    }
+  &:hover:not(:disabled), &:focus:not(:disabled) {
+    background-color: #FFF;
+  }
 
-    &:active {
-      
-    }
+  &:active {
+    
+  }
 
-    &:inactive {
+  &:inactive {
 
-    }
   }
 }
