@@ -7,13 +7,13 @@ import Keyboard from './components/Keyboard/Keyboard';
 
 function App() {
 
-  const [guessWord, setGuessWord] = useState(() => {
+  const [guessedWord, setGuessedWord] = useState(() => {
     return words[Math.floor(Math.random() * words.length)]
   });
 
   const [letterGuesses, setLetterGuesses] = useState<string[]>([]);
 
-  const wrongLetters = letterGuesses.filter(letter => !guessWord.includes(letter))
+  const wrongLetters = letterGuesses.filter(letter => !guessedWord.includes(letter))
 
   return (
     <div className="app__main">
@@ -21,7 +21,7 @@ function App() {
         Lose Win
       </div>
       <Sketch numOfGuesses={wrongLetters.length} />
-      <Word />
+      <Word guessedWord={guessedWord} letterGuesses={letterGuesses} />
       <Keyboard />
     </div>
   )
