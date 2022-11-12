@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import words from './list.json';
 import './App.scss';
 import Sketch from './components/Sketch/Sketch';
@@ -13,7 +13,31 @@ function App() {
 
   const [letterGuesses, setLetterGuesses] = useState<string[]>([]);
 
-  const wrongLetters = letterGuesses.filter(letter => !guessedWord.includes(letter))
+  const wrongLetters = letterGuesses.filter(letter => !guessedWord.includes(letter));
+
+  const addLetterGuessed = (letter: string) => {
+    // if letter has already been guessed, then return
+    if (letterGuesses.includes(letter)) return;
+
+    // otherwise add the letter into all the other pressed letters
+    setLetterGuesses(pressedLetters => [...pressedLetters, letter])
+  };
+
+  useEffect(() => {
+    const handler = (event: KeyboardEvent) => {
+      const key = event.key;
+      // if key pressed isn't a-z, ignore
+      if (!key.match(/^[a-zA-Z]$/)) return;
+      event.preventDefault();
+      addLetterGuessed(key);
+    }
+
+    document.addEventListener('keypress', handler);
+
+    return () => {
+      document.removeEventListener("keypress", handler);
+    }
+  }, [])
 
   return (
     <div className="app__main">
