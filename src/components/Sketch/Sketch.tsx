@@ -8,7 +8,7 @@ type SketchProps = {
 const Sketch = ({ numOfGuesses }: SketchProps) => {
   return (
     <div className="app__sketch">
-      {BODY}
+      {BODY.slice(0, numOfGuesses)}
       <div className="app__drop-bar" />
       <div className="app__top-bar" />
       <div className="app__middle-bar" />
