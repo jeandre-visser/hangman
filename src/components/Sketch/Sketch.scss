@@ -10,12 +10,26 @@
 }
 
 .app__torso {
-  width: 10px;
+  width: 15px;
   height: 120px;
   background: #000;
   position: absolute;
   top: 130px;
-  right: 2.5px;
+  right: 0px;
+}
+
+.app__right-arm {
+  width: 100px;
+  position: absolute;
+  top: 100px;
+  right: -90px;
+}
+
+.app__left-arm {
+  width: 100px;
+  position: absolute;
+  top: 100px;
+  right: 0;
 }
 
 .app__drop-bar {
