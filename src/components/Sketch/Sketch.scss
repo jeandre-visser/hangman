@@ -16,6 +16,8 @@
   position: absolute;
   top: 130px;
   right: 0px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .app__right-arm {
@@ -30,6 +32,20 @@
   position: absolute;
   top: 100px;
   right: 10px;
+}
+
+.app__left-leg {
+  width: 130px;
+  position: absolute;
+  top: 240px;
+  right: -37.5px;
+}
+
+.app__right-leg {
+  width: 130px;
+  position: absolute;
+  top: 240px;
+  right: -77.5px;
 }
 
 .app__drop-bar {
