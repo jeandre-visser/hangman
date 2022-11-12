@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import words from './list.json';
 import './App.scss';
 import Sketch from './components/Sketch/Sketch';
@@ -15,13 +15,13 @@ function App() {
 
   const wrongLetters = letterGuesses.filter(letter => !guessedWord.includes(letter));
 
-  const addLetterGuessed = (letter: string) => {
+  const addLetterGuessed = useCallback((letter: string) => {
     // if letter has already been guessed, then return
     if (letterGuesses.includes(letter)) return;
 
     // otherwise add the letter into all the other pressed letters
     setLetterGuesses(pressedLetters => [...pressedLetters, letter])
-  };
+  }, [letterGuesses]);
 
   useEffect(() => {
     const handler = (event: KeyboardEvent) => {
@@ -37,7 +37,7 @@ function App() {
     return () => {
       document.removeEventListener("keypress", handler);
     }
-  }, [])
+  }, [letterGuesses])
 
   return (
     <div className="app__main">
