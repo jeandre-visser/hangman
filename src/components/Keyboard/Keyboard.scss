@@ -1,0 +1,12 @@
+.app__keyboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  gap: 0.5rem;
+  align-self: stretch;
+
+  .btn {
+    width: 100%;
+    background: #ffca28;
+    border-radius: 5px;
+  }
+}
