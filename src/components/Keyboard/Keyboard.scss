@@ -1,12 +1,28 @@
 .app__keyboard {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-  gap: 0.5rem;
+  grid-gap: 0.4rem;
   align-self: stretch;
+  justify-content: center;
 
   .btn {
-    width: 100%;
+    aspect-ratio: 1/1;
     background: #ffca28;
-    border-radius: 5px;
+    border-radius: 1rem;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    &:hover:not(:disabled), &:focus:not(:disabled) {
+      background-color: #FFF;
+    }
+
+    &:active {
+      
+    }
+
+    &:inactive {
+
+    }
   }
 }
