@@ -1,6 +1,10 @@
 import './Sketch.scss';
 
-const Sketch = () => {
+type SketchProps = {
+  numOfGuesses: number;
+}
+
+const Sketch = ({ numOfGuesses }: SketchProps) => {
   return (
     <div className="app__sketch">
       <img className='app__head' src="src\assets\head.png" alt="head" />
