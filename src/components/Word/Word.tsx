@@ -1,15 +1,17 @@
 import './Word.scss';
 
-import React from 'react'
+type WordProps = {
+  letterGuesses: string[];
+  guessedWord: string;
+}
 
-const Word = () => {
-  const word = 'show';
-  const guesses = ["s"];
+const Word = ({ guessedWord, letterGuesses }: WordProps) => {
+
   return (
     <div className="app__word">
-      {word.split('').map((letter, index) => (
+      {guessedWord.split('').map((letter, index) => (
         <span className="app__letters" key={index}>
-          <span style={{ visibility: guesses.includes(letter) ? 'visible' : 'hidden' }}>
+          <span style={{ visibility: letterGuesses.includes(letter) ? 'visible' : 'hidden' }}>
             {letter}
           </span>
         </span>
