@@ -64,13 +64,15 @@ function App() {
   return (
     <div className="app__main">
       <nav className='app__nav'>
-        <h1>Hangman</h1>
-        <img src="src\assets\head.png" alt="head" />
-      </nav>
+        <div className='app__nav-title' style={ win || lost ? {display: 'none'} : {display: 'flex'} }>
+          <h1>Hangman</h1>
+          <img src="src\assets\head.png" alt="head" />
+        </div>
       <div className="app__header">
         {win && 'You Win!'}
         {lost && 'Try again!'}
       </div>
+      </nav>
       <Sketch numOfGuesses={wrongLetters.length} />
       <Word guessedWord={guessedWord} letterGuesses={letterGuesses} showWord={lost}/>
       <Keyboard 
