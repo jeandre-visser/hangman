@@ -14,17 +14,18 @@ function App() {
   const [letterGuesses, setLetterGuesses] = useState<string[]>([]);
 
   const wrongLetters = letterGuesses.filter(letter => !guessedWord.includes(letter));
+  
+  const lost = wrongLetters.length >= 6;
+  const win = guessedWord.split("").every(letter => letterGuesses.includes(letter));
 
   const addLetterGuessed = useCallback((letter: string) => {
     // if letter has already been guessed, then return
-    if (letterGuesses.includes(letter)) return;
+    if (letterGuesses.includes(letter) || lost || win) return;
 
     // otherwise add the letter into all the other pressed letters
     setLetterGuesses(pressedLetters => [...pressedLetters, letter])
-  }, [letterGuesses]);
+  }, [letterGuesses, win, lost]);
 
-  const lost = wrongLetters.length >= 6;
-  const win = guessedWord.split("").every(letter => letterGuesses.includes(letter));
 
   useEffect(() => {
     const handler = (event: KeyboardEvent) => {
@@ -45,7 +46,8 @@ function App() {
   return (
     <div className="app__main">
       <div className="app__header">
-        Lose Win
+        {win && 'You Win!'}
+        {lost && 'Try again!'}
       </div>
       <Sketch numOfGuesses={wrongLetters.length} />
       <Word guessedWord={guessedWord} letterGuesses={letterGuesses} />
@@ -53,6 +55,7 @@ function App() {
         activeLetter={letterGuesses.filter(letter => guessedWord.includes(letter))} 
         inactiveLetter={wrongLetters}
         addLetterGuessed={addLetterGuessed}
+        disabled={win || lost}
       />
     </div>
   )
