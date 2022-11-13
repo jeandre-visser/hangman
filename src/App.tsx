@@ -79,6 +79,7 @@ function App() {
         addLetterGuessed={addLetterGuessed}
         disabled={win || lost}
       />
+      <footer>Press 'Enter' for a new word</footer>
     </div>
   )
 }
