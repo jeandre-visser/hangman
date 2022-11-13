@@ -17,11 +17,14 @@
     background-color: #FFF;
   }
 
-  &:active {
-    
-  }
+}
 
-  &:inactive {
+.active {
+  background-color: #04bd29;
+  color: #000;
+  border: 2px solid #000;
+}
 
-  }
+.inactive {
+  background-color: #ff2222;
 }
