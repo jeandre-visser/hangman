@@ -63,6 +63,10 @@ function App() {
 
   return (
     <div className="app__main">
+      <nav className='app__nav'>
+        <h1>Hangman</h1>
+        <img src="src\assets\head.png" alt="head" />
+      </nav>
       <div className="app__header">
         {win && 'You Win!'}
         {lost && 'Try again!'}
