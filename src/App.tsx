@@ -5,6 +5,11 @@ import Sketch from './components/Sketch/Sketch';
 import Word from './components/Word/Word';
 import Keyboard from './components/Keyboard/Keyboard';
 
+
+const getNextWord = () => {
+  return words[Math.floor(Math.random() * words.length)]
+}
+
 function App() {
 
   const [guessedWord, setGuessedWord] = useState(() => {
@@ -14,7 +19,7 @@ function App() {
   const [letterGuesses, setLetterGuesses] = useState<string[]>([]);
 
   const wrongLetters = letterGuesses.filter(letter => !guessedWord.includes(letter));
-  
+
   const lost = wrongLetters.length >= 6;
   const win = guessedWord.split("").every(letter => letterGuesses.includes(letter));
 
@@ -43,6 +48,19 @@ function App() {
     }
   }, [letterGuesses])
 
+  useEffect(() => {
+    const handler = (event: KeyboardEvent) => {
+      const key = event.key;
+
+      if (key !== "Enter") return;
+      event.preventDefault();
+      setLetterGuesses([])
+      setGuessedWord(getNextWord());
+    }
+
+    document.addEventListener('keypress', handler);
+  })
+
   return (
     <div className="app__main">
       <div className="app__header">
@@ -50,7 +68,7 @@ function App() {
         {lost && 'Try again!'}
       </div>
       <Sketch numOfGuesses={wrongLetters.length} />
-      <Word guessedWord={guessedWord} letterGuesses={letterGuesses} />
+      <Word guessedWord={guessedWord} letterGuesses={letterGuesses} showWord={lost}/>
       <Keyboard 
         activeLetter={letterGuesses.filter(letter => guessedWord.includes(letter))} 
         inactiveLetter={wrongLetters}
