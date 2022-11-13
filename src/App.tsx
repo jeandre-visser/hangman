@@ -46,7 +46,11 @@ function App() {
       </div>
       <Sketch numOfGuesses={wrongLetters.length} />
       <Word guessedWord={guessedWord} letterGuesses={letterGuesses} />
-      <Keyboard />
+      <Keyboard 
+        activeLetter={letterGuesses.filter(letter => guessedWord.includes(letter))} 
+        inactiveLetter={wrongLetters}
+        addLetterGuessed={addLetterGuessed}
+      />
     </div>
   )
 }
