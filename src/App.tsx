@@ -70,7 +70,9 @@ function App() {
         </div>
       <div className="app__header">
         {win && 'You Win!'}
+        {win && <img src="src\assets\win.png" alt="winner" />}
         {lost && 'Try again!'}
+        {lost && <img src="src\assets\lose.png" alt="loser" />}
       </div>
       </nav>
       <Sketch numOfGuesses={wrongLetters.length} />
