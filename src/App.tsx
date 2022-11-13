@@ -23,6 +23,9 @@ function App() {
     setLetterGuesses(pressedLetters => [...pressedLetters, letter])
   }, [letterGuesses]);
 
+  const lost = wrongLetters.length >= 6;
+  const win = guessedWord.split("").every(letter => letterGuesses.includes(letter));
+
   useEffect(() => {
     const handler = (event: KeyboardEvent) => {
       const key = event.key;
