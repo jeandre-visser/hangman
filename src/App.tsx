@@ -4,7 +4,7 @@ import './App.scss';
 import Sketch from './components/Sketch/Sketch';
 import Word from './components/Word/Word';
 import Keyboard from './components/Keyboard/Keyboard';
-
+import { images } from './constants';
 
 const getNextWord = () => {
   return words[Math.floor(Math.random() * words.length)]
@@ -58,13 +58,13 @@ function App() {
       <nav className='app__nav'>
         <div className='app__nav-title' style={ win || lost ? {display: 'none'} : {display: 'flex'} }>
           <h1>Hangman</h1>
-          <img src="src\assets\head.png" alt="head" />
+          <img src={images.head} alt="head" />
         </div>
       <div className="app__header">
         {win && 'You Win!'}
-        {win && <img src="src\assets\win.png" alt="winner" />}
+        {win && <img src={images.winFace} alt="winner" />}
         {lost && 'Try again!'}
-        {lost && <img src="src\assets\lose.png" alt="loser" />}
+        {lost && <img src={images.loseFace} alt="loser" />}
       </div>
       </nav>
       <Sketch numOfGuesses={wrongLetters.length} />
