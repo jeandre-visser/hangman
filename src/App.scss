@@ -10,6 +10,7 @@ body {
   padding: 0.2rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin: 0 auto;
   align-items: center;
   gap: 1rem;
@@ -22,10 +23,12 @@ body {
   border-radius: 1rem;
   background-color: #ffca28;
   width: 95vw;
-  min-height: 92px;
+  min-height: 70px;
+  max-height: 70px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
   letter-spacing: 4px; 
   text-transform: uppercase;
+  margin-bottom: 1.5rem;
 
   .app__nav-title {
     display: flex;
@@ -42,14 +45,47 @@ body {
     align-items: center;
     display: flex;
     gap: 0.5rem;
+
+    @media screen and (max-width: 750px) {
+      font-size: 1.5rem;
+    }
   }
   
   img {
     width: 55px;
     height: 55px;
+
+    @media screen and (max-width: 750px) {
+      width: 45px;
+      height: 45px;
+    }
   }
 
   h1 {
     font-size: 2rem;
   }
+}
+
+.app__reset-btn {
+  background: #ffca28;
+  width: 150px;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-family: 'Fredoka One', cursive;
+  border-radius: 10px;
+  border: 2px solid #000;
+
+  &:active {
+    background-color: #FFF;
+  }
+
+  @media screen and (max-width: 750px) {
+    font-size: 1rem;
+    padding: 0.7rem;
+  }
+
+  @media screen and (max-height: 700px) {
+    padding: 0.5rem;
+  }
+
 }

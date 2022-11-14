@@ -3,6 +3,7 @@
   grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
   grid-gap: 0.4rem;
   align-self: stretch;
+  margin-top: 1rem;
 
   @media screen and (max-width: 1050px) {
     grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
@@ -11,15 +12,19 @@
   }
 
   @media screen and (max-width: 750px) {
-    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
     max-width: 420px;
     align-self: center;
   }
 
   @media screen and (max-width: 450px) {
-    grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
     max-width: 350px;
     align-self: center;
+    grid-gap: 0.2rem;
+  }
+
+  @media screen and (max-height: 700px) {
+    grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
   }
 }
 
