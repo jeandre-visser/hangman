@@ -48,18 +48,10 @@ function App() {
     }
   }, [letterGuesses])
 
-  useEffect(() => {
-    const handler = (event: KeyboardEvent) => {
-      const key = event.key;
-
-      if (key !== "Enter") return;
-      event.preventDefault();
-      setLetterGuesses([])
+  const handleReset = () => {
+      setLetterGuesses([]);
       setGuessedWord(getNextWord());
-    }
-
-    document.addEventListener('keypress', handler);
-  })
+  }
 
   return (
     <div className="app__main">
@@ -83,7 +75,9 @@ function App() {
         addLetterGuessed={addLetterGuessed}
         disabled={win || lost}
       />
-      <footer>Press 'Enter' for a new word</footer>
+      <footer>
+        <button className="app__reset-btn" onClick={handleReset}>New Word</button>
+      </footer>
     </div>
   )
 }
