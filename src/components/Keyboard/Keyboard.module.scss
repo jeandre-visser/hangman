@@ -3,18 +3,40 @@
   grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
   grid-gap: 0.4rem;
   align-self: stretch;
+
+  @media screen and (max-width: 1050px) {
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    max-width: 750px;
+    align-self: center;
+  }
+
+  @media screen and (max-width: 750px) {
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    max-width: 420px;
+    align-self: center;
+  }
+
+  @media screen and (max-width: 450px) {
+    grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+    max-width: 350px;
+    align-self: center;
+  }
 }
 
 .btn {
   aspect-ratio: 1/1;
   background: #ffca28;
-  border-radius: 1rem;
+  border-radius: 20%;
   font-size: 1.7rem;
   text-transform: uppercase;
   font-weight: bold;  
 
   &:hover:not(:disabled), &:focus:not(:disabled) {
     background-color: #FFF;
+  }
+
+  @media screen and (max-width: 750px) {
+    font-size: 1.2rem;
   }
 
 }
