@@ -1,5 +1,13 @@
 .app__sketch {
   position: relative;
+  margin-top: 5rem;
+
+  @media screen and (max-height: 750px) {
+    margin-top: 0;
+  }
+  @media screen and (min-height: 1000px) {
+    margin-top: 7;
+  }
 }
 
 .app__head {

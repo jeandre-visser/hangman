@@ -1,10 +1,9 @@
 .app__word {
   display: flex;
   gap: 1rem;
-  font-size: 5rem;
+  font-size: 3.5rem;
   text-transform: uppercase;
   color: #000;
-  margin-top: 1rem;
 
   @media screen and (max-width: 1050px) {
     font-size: 3rem;
